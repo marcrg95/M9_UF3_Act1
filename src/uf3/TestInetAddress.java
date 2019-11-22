@@ -44,7 +44,7 @@ public class TestInetAddress {
 			System.out.println(" --> Retorna el nom i la IP del PC des d'on executem aquest programa");
 		} catch (UnknownHostException e) {e.printStackTrace();}
 		
-		//FEM SERVIR MÊTODES DE LA CLASSE
+		//FEM SERVIR MÊTODES DE LA CLASSE 
 		System.out.println("\tMètode getHostName(): "+dir.getHostName()+" -->Retorna el nom del host");
 		System.out.println("\tMètode getHostAddress(): "+dir.getHostAddress()+" -->Retorna la IP del host");
 		System.out.println("\tMètode toString(): "+dir.toString()+" --> Converteix a String el nom del host i la seva IP");
