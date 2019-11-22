@@ -16,7 +16,7 @@ public class TestInetAddress {
 			//URL www.google.com
 			System.out.println("=====================================================");
 			System.out.println("SORTIDA PER A URL");
-			dir = InetAddress.getByName("www.google.com");
+			dir = InetAddress.getByName(args[0]);
 			provaTots(dir);
 			
 			//Array tipus InetAddress amb totes les adreces IP de google.com
@@ -24,6 +24,7 @@ public class TestInetAddress {
 			InetAddress[] adreces = InetAddress.getAllByName(dir.getHostName());
 			for (int i=0; i<adreces.length; i++) 
 				System.out.println("\t\t"+adreces[i].toString());
+			System.out.println("Retorna un array amb totes les adreces IP que té el host");
 			System.out.println("=====================================================");
 			
 		} catch (UnknownHostException e1) {e1.printStackTrace();}
@@ -39,13 +40,21 @@ public class TestInetAddress {
 		try {
 			dir2 = InetAddress.getLocalHost();
 			System.out.println("\tMètode getLocalHost(): "+dir2);
+			System.out.println("Retorna el nom i la IP del PC des d'on executem aquest programa");
 		} catch (UnknownHostException e) {e.printStackTrace();}
 		
 		//FEM SERVIR MÊTODES DE LA CLASSE
-		System.out.println("\tMètode getHostName(): "+dir.getHostName());
-		System.out.println("\tMètode getHostAddress(): "+dir.getHostAddress());
-		System.out.println("\tMètode toString(): "+dir.toString());
+		System.out.println("\tMètode getHostName(): "+dir.getHostName()+" -->Retorna el nom del host");
+		System.out.println("\tMètode getHostAddress(): "+dir.getHostAddress()+" -->Retorna la IP del host");
+		System.out.println("\tMètode toString(): "+dir.toString()+" ");
 		System.out.println("\tMètode getCanonicalHostName(): "+dir.getCanonicalHostName());
+		byte[] getAddress = dir.getAddress();
+		System.out.print("\tMètode getAddress(): ");
+		for (int i = 0; i < getAddress.length-1; i++) {
+			System.out.print(getAddress[i]+".");
+		}
+		System.out.print(getAddress[3]);
+		System.out.println(" Retorna un array en bits de l'adreça IP");
 		
 	}
 }
